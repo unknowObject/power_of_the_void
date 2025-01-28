@@ -1,0 +1,37 @@
+{
+  "itemGroup.power_of_the_void.item_tab": "虚空之力",
+  "item.power_of_the_void.drippy": "妈耶精华",
+  "school.power_of_the_void.orokin": "奥罗金",
+
+  "ui.power_of_the_void.cast_fail": "生命值不足以释放",
+  "ui.power_of_the_void.life_cost": "生命值消耗",
+  "ui.power_of_the_void.mana_add": "魔法值回复",
+  "ui.power_of_the_void.iceDamage": "寒冰伤害",
+  "ui.power_of_the_void.fireDamage": "火焰伤害",
+  "attribute.name.generic.damage_boost": "增加伤害",
+
+  "spell.power_of_the_void.thermal_sunder": "热能抽离",
+  "spell.power_of_the_void.thermal_sunder_ice": "热能抽离·冰",
+  "spell.power_of_the_void.thermal_sunder_fire": "热能抽离·火",
+  "spell.power_of_the_void.thermal_sunder_new": "热能抽离",
+  "spell.power_of_the_void.redline": "赤限",
+  "spell.power_of_the_void.mesmer_skin": "催眠外表",
+  "spell.power_of_the_void.bloodletting": "祭血仪式",
+  "spell.power_of_the_void.roar": "战吼",
+
+  "effect.power_of_the_void.redline": "赤限",
+  "effect.power_of_the_void.invulnerable": "无敌",
+  "effect.power_of_the_void.stunned": "晕眩",
+  "effect.power_of_the_void.mesmer_skin": "催眠外表",
+  "effect.power_of_the_void.roar": "小声bb",
+  "effect.power_of_the_void.heat": "火焰异常",
+
+  "spell.power_of_the_void.thermal_sunder.guide": "在附近区域吸取动能，冰封附近实体。然后逆转这一过程，点燃并伤害附近实体。如果实体已经被冰封，则永久移除该实体全部护甲。（注意：火焰伤害会摧毁范围内掉落物，释放时请务必小心。）",
+  "spell.power_of_the_void.redline.guide": "增强你的法术强度，攻击速度，并减少施法所需时间。",
+  "spell.power_of_the_void.mesmer_skin.guide": "受到Sentient能量包围，清除负面效果，偏转伤害并震晕胆敢攻击者。",
+  "spell.power_of_the_void.bloodletting.guide": "以生命值为代价换取魔力值并清除负面效果。",
+  "spell.power_of_the_void.roar.guide": "短时间内让所有附近的玩家提升伤害输出。",
+  "spell.power_of_the_void.thermal_sunder_ice.guide": "在附近区域吸取动能，冰封附近生物。如果生物拥有火焰异常，将基于火焰异常等级永久移除护甲并造成额外伤害。",
+  "spell.power_of_the_void.thermal_sunder_fire.guide": "在附近区域释放动能，点燃附近生物并施加火焰异常。如果生物已被冰封，则基于冰封等级永久移除护甲并造成额外伤害。",
+  "spell.power_of_the_void.thermal_sunder_new.guide": "在附近区域吸取动能，冰封附近生物。按住Ctrl释放逆转这一过程，点燃并伤害附近生物。如果生物被另一种状态影响，则基于等级永久移除护甲并造成额外伤害。"
+}

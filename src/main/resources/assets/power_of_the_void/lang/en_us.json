@@ -1,0 +1,37 @@
+{
+  "itemGroup.power_of_the_void.item_tab": "Power of the Void",
+  "item.power_of_the_void.drippy": "Drippy",
+  "school.power_of_the_void.orokin": "Orokin",
+
+  "ui.power_of_the_void.cast_fail": "Not enough health to cast",
+  "ui.power_of_the_void.life_cost": "Health Cost",
+  "ui.power_of_the_void.mana_add": "Mana Add",
+  "ui.power_of_the_void.iceDamage": "Ice Damage",
+  "ui.power_of_the_void.fireDamage": "Fire Damage",
+  "attribute.name.generic.damage_boost": "Damage Boost",
+
+  "spell.power_of_the_void.thermal_sunder": "Thermal Sunder",
+  "spell.power_of_the_void.thermal_sunder_ice": "Thermal Sunder: Ice",
+  "spell.power_of_the_void.thermal_sunder_fire": "Thermal Sunder: Fire",
+  "spell.power_of_the_void.thermal_sunder_new": "Thermal Sunder",
+  "spell.power_of_the_void.redline": "Redline",
+  "spell.power_of_the_void.mesmer_skin": "Mesmer Skin",
+  "spell.power_of_the_void.bloodletting": "Bloodletting",
+  "spell.power_of_the_void.roar": "Roar",
+
+  "effect.power_of_the_void.redline": "Redline",
+  "effect.power_of_the_void.invulnerable": "Invulnerable",
+  "effect.power_of_the_void.stunned": "Stunned",
+  "effect.power_of_the_void.mesmer_skin": "Mesmer Skin",
+  "effect.power_of_the_void.roar": "Roar",
+  "effect.power_of_the_void.heat": "Heat",
+
+  "spell.power_of_the_void.thermal_sunder.guide": "Siphon kinetic energy from the area, inflicting Chilled effect on nearby entities, then reverses the process, damage and ignite nearby entities, remove all their armor permanently if they are chilled.(CAUTION: fire damage will destroy drops, be careful when casting.)",
+  "spell.power_of_the_void.redline.guide": " Boost your spell power, attack speed, and cast speed.",
+  "spell.power_of_the_void.mesmer_skin.guide": "Become enveloped in Sentient energy, which redirects damage, cleanse negative effects, and stuns all those who dare attack.",
+  "spell.power_of_the_void.bloodletting.guide": "Sacrifices health to generate mana and cleanse negative effects.",
+  "spell.power_of_the_void.roar.guide": "Grants all nearby players increased damage for a short duration.",
+  "spell.power_of_the_void.thermal_sunder_ice.guide": "Siphon kinetic energy from the area, inflicting Chilled effect on nearby mobs, for those already effected. If they already effected by Heat, remove their armor permanently and deals more damage base on Heat levels.",
+  "spell.power_of_the_void.thermal_sunder_fire.guide": "Release kinetic energy to the area, damage and inflicting Heat effect on nearby mobs. When cast on enemies already affected by Heat, Thermal Sunder deals more damage. If they already effected by Chilled, remove their armor permanently and deals more damage base on Heat levels.",
+  "spell.power_of_the_void.thermal_sunder_new.guide": "Siphon kinetic energy from the area, inflicting Chilled effect on nearby entities, hold Ctrl while casting reverses the process, damage and ignite nearby entities, remove their armor permanently and deal extra damage if they are inflicted by the other effect."
+}
