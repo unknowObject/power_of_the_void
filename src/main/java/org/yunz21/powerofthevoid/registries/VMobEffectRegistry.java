@@ -22,19 +22,20 @@ public class VMobEffectRegistry {
     }
 
     public static final RegistryObject<MobEffect> REDLINE = MOB_EFFECT_DEFERRED_REGISTER.register(
-            "redline", () -> new RedlineEffect(MobEffectCategory.BENEFICIAL, 0)
+            "redline", () -> new RedlineEffect(MobEffectCategory.BENEFICIAL, 0x000000)
                     .addAttributeModifier(AttributeRegistry.SPELL_POWER.get(), "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", RedlineEffect.SPELL_POWER_PER_LEVEL, AttributeModifier.Operation.MULTIPLY_TOTAL)
                     .addAttributeModifier(AttributeRegistry.CAST_TIME_REDUCTION.get(), "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", .05, AttributeModifier.Operation.MULTIPLY_TOTAL)
                     .addAttributeModifier(Attributes.ATTACK_SPEED, "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", RedlineEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.MULTIPLY_TOTAL)
                     //.addAttributeModifier(Attributes.MOVEMENT_SPEED, "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", .10, AttributeModifier.Operation.MULTIPLY_TOTAL)
     );
-    public static final RegistryObject<MobEffect> MESMER_SKIN = MOB_EFFECT_DEFERRED_REGISTER.register("mesmer_skin", () -> new MesmerSkinEffect(MobEffectCategory.BENEFICIAL, 0));
-    public static final RegistryObject<MobEffect> INVULNERABLE = MOB_EFFECT_DEFERRED_REGISTER.register("invulnerable", () -> new InvulnerableEffect(MobEffectCategory.BENEFICIAL, 0));
-    public static final RegistryObject<MobEffect> ROAR = MOB_EFFECT_DEFERRED_REGISTER.register("roar", () -> new InvulnerableEffect(MobEffectCategory.BENEFICIAL, 0));
+    public static final RegistryObject<MobEffect> MESMER_SKIN = MOB_EFFECT_DEFERRED_REGISTER.register("mesmer_skin", () -> new MesmerSkinEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final RegistryObject<MobEffect> INVULNERABLE = MOB_EFFECT_DEFERRED_REGISTER.register("invulnerable", () -> new InvulnerableEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final RegistryObject<MobEffect> ROAR = MOB_EFFECT_DEFERRED_REGISTER.register("roar", () -> new RoarEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final RegistryObject<MobEffect> MACH_RUSH = MOB_EFFECT_DEFERRED_REGISTER.register("mach_rush", () -> new MachRushEffect(MobEffectCategory.BENEFICIAL, 0x000000));
 
 
     public static final RegistryObject<MobEffect> STUNNED = MOB_EFFECT_DEFERRED_REGISTER.register("stunned", () -> new StunnedEffect(MobEffectCategory.HARMFUL, 0xff4800));
-    public static final RegistryObject<MobEffect> HEAT = MOB_EFFECT_DEFERRED_REGISTER.register("heat", () -> new HeatEffect(MobEffectCategory.HARMFUL, 0x9f0be3));
+    public static final RegistryObject<MobEffect> HEAT = MOB_EFFECT_DEFERRED_REGISTER.register("heat", () -> new HeatEffect(MobEffectCategory.HARMFUL, 0x000000));
 
 //    //public static final RegistryObject<MobEffect> BLOOD_SLASHED = MOB_EFFECT_DEFERRED_REGISTER.register("blood_slashed", () -> new BloodSlashed(MobEffectCategory.HARMFUL, 0xff4800));
 //    public static final RegistryObject<MobEffect> EVASION = MOB_EFFECT_DEFERRED_REGISTER.register("evasion", () -> new EvasionEffect(MobEffectCategory.BENEFICIAL, 0x9f0be3));
