@@ -14,7 +14,7 @@ public class BatteryCapability{
     private int maxChargeRedline = 100;
     private boolean isRedlineActive;
     private int redlineDuration; // Track Redline duration
-    private int percent;
+    private float percent;
     private int maxCharge;
 
     public BatteryCapability(){
@@ -31,7 +31,7 @@ public class BatteryCapability{
         return charge;
     }
 
-    public int getPercent() {
+    public float getPercent() {
         return percent;
     }
 
@@ -53,20 +53,33 @@ public class BatteryCapability{
     }
 
     public boolean hasCharge(int amount) {
-        return charge >= amount;
+        return charge > amount;
     }
 
-    public void addPercent(int amount) {
-        percent = Math.min(100, percent + amount);
+    public void addPercent() {
+        percent = Math.min(100.0f, percent +  100 / (getRedlineDuration() / 3.0f));
     }
 
-    public void consumePercent(int amount) {
-        percent = Math.max(0, percent - amount);
+    public void setPercent(float amount) {
+        percent = amount;
+    }
+
+    public void setCharge(int amount) {
+        charge = amount;
+    }
+
+    public void setRedlineDuration(int amount) {
+        redlineDuration = amount;
+    }
+
+    public int getRedlineDuration() {
+        return redlineDuration;
     }
 
     public void saveNBTData(CompoundTag compoundTag) {
         compoundTag.putInt("BatteryCharge", charge);
         compoundTag.putInt("MaxCharge", maxCharge);
+        compoundTag.putFloat("Percent", percent);
         compoundTag.putBoolean("IsRedlineActive", isRedlineActive);
         compoundTag.putInt("RedlineDuration", redlineDuration);
     }
@@ -74,6 +87,7 @@ public class BatteryCapability{
     public void loadNBTData(CompoundTag compoundTag) {
         charge = compoundTag.getInt("BatteryCharge");
         maxCharge = compoundTag.contains("MaxCharge") ? compoundTag.getInt("MaxCharge") : 80;
+        percent = compoundTag.contains("Percent") ? compoundTag.getFloat("Percent") : 0.0f;
         isRedlineActive = compoundTag.getBoolean("IsRedlineActive");
         redlineDuration = compoundTag.getInt("RedlineDuration");
     }

@@ -26,25 +26,40 @@ public class BatteryEvent {
                 if (wasRedlineActive && !hasRedline) {
                     // Effect was removed
                     battery.setMaxCharge(80);
-                    System.out.println("[DEBUG] Redline Removed - MaxCharge Set to 80");
+                    //System.out.println("[DEBUG] Redline Removed - MaxCharge Set to 80");
+
+                    float percent = battery.getPercent();
+                    int curCharge = battery.getCharge();
+                    int finalCharge = Math.min((int) (curCharge * percent / 100), 80);
+                    battery.setCharge(finalCharge);
+                    battery.setPercent(0.0f);
 
                     // Send sync update
                     if (player instanceof ServerPlayer serverPlayer) {
-                        ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(),80), (ServerPlayer) player);
+                        ModMessages.sendToPlayer(new BatteryDataSyncPacket(finalCharge,80, battery.getPercent()), (ServerPlayer) player);
+                        System.out.println("[DEBUG]Redline Removed - MaxCharge Set to 80, Charge to "+finalCharge);
                     }
                 }
 
                 // If Redline just got applied, update max charge
                 if (!wasRedlineActive && hasRedline) {
                     battery.setMaxCharge(100);
-                    System.out.println("[DEBUG] Redline Applied - MaxCharge Set to 100");
+                    //System.out.println("[DEBUG] Redline Applied - MaxCharge Set to 100");
 
                     if (player instanceof ServerPlayer serverPlayer) {
-                        ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), 100), (ServerPlayer) player);
+                        ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), 100, battery.getPercent()), (ServerPlayer) player);
                         //ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge()), (ServerPlayer) player);
                     }
                 }
 
+
+                if (battery.hasCharge(80) && hasRedline) {
+                    battery.addPercent();
+                    System.out.println(battery.getCharge());
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), 100, battery.getPercent()), (ServerPlayer) player);
+                    }
+                }
                 // Update the last known state
                 wasRedlineActive = hasRedline;
             });

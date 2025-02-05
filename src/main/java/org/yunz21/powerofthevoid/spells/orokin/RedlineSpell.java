@@ -86,9 +86,17 @@ public class RedlineSpell extends AbstractSpell {
     }
 
     @Override
+    public boolean checkPreCastConditions(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {
+        return !entity.hasEffect(VMobEffectRegistry.REDLINE.get());
+    }
+
+    @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         entity.addEffect(new MobEffectInstance(VMobEffectRegistry.REDLINE.get(), (int) (getSpellPower(spellLevel, entity) * 20), spellLevel - 1, false, false, true));
 
+        entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
+            battery.setRedlineDuration((int) getSpellPower(spellLevel, entity) * 20);
+        });
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 

@@ -202,7 +202,7 @@ public class ThermalSunderNewSpell extends AbstractSpell {
             entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
                 battery.addCharge(10); // Gain charge while casting ice
 
-                ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), battery.getMaxCharge()), (ServerPlayer) entity);
+                ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), battery.getMaxCharge(), battery.getPercent()), (ServerPlayer) entity);
                 entity.sendSystemMessage(Component.literal("Gained charge"));
             });
 
@@ -250,7 +250,7 @@ public class ThermalSunderNewSpell extends AbstractSpell {
             entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
                 battery.consumeCharge(10); // Consume charge while casting fire
 
-                ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(),battery.getMaxCharge()), (ServerPlayer) entity);
+                ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(),battery.getMaxCharge(), battery.getPercent()), (ServerPlayer) entity);
                 entity.sendSystemMessage(Component.literal("Consumed charge"));
             });
 

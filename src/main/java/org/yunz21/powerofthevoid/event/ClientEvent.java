@@ -95,15 +95,6 @@ public class ClientEvent {
                         event.setResult(net.minecraftforge.eventbus.api.Event.Result.DENY);
                     }
                 }
-
-//                // set max charge to 100 when Redline is applied
-//                if (effect.getEffect() == VMobEffectRegistry.REDLINE.get()) {
-//                    player.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
-//                        battery.setMaxCharge(100);
-//                        System.out.println("[DEBUG] Redline Applied - MaxCharge Set to 100");
-//                        ModMessages.sendToPlayer(new MaxChargeSyncPacket(100), (ServerPlayer) player);
-//                    });
-//                }
             }
         }
     }

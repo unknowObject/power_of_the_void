@@ -26,7 +26,7 @@ public class ModEvent {
         if(!event.getLevel().isClientSide()) {
             if(event.getEntity() instanceof ServerPlayer player) {
                 player.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
-                    ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), battery.getMaxCharge()), player);
+                    ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), battery.getMaxCharge(), battery.getPercent()), player);
                 });
             }
         }
