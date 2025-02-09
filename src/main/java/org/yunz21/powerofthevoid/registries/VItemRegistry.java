@@ -5,6 +5,7 @@ import io.redspace.ironsspellbooks.util.ItemPropertiesHelper;
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -12,12 +13,18 @@ import org.yunz21.powerofthevoid.PowerOfTheVoid;
 
 import java.util.Collection;
 
+import static org.yunz21.powerofthevoid.PowerOfTheVoid.LOGGER;
+
+@Mod.EventBusSubscriber(modid = PowerOfTheVoid.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class VItemRegistry {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PowerOfTheVoid.MODID);
 
     public static void register(IEventBus eventBus) {
+        LOGGER.info("Registering items...");
         ITEMS.register(eventBus);
     }
+
+    public static final RegistryObject<Item> DRIPPY = ITEMS.register("drippy", () -> new Item(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON)));
 
     //public static final RegistryObject<Item> SPELL_BOOK = ITEMS.register("spell_book", SpellBook::new);
     /**
@@ -76,7 +83,6 @@ public class VItemRegistry {
     /**
      * Generic Items
      */
-    public static final RegistryObject<Item> DRIPPY = ITEMS.register("drippy", () -> new Item(ItemPropertiesHelper.material().rarity(Rarity.UNCOMMON)));
 
 //    public static final RegistryObject<Item> FROZEN_BONE_SHARD = ITEMS.register("frozen_bone", () -> new Item(ItemPropertiesHelper.material()));
 //    public static final RegistryObject<Item> BLOOD_VIAL = ITEMS.register("blood_vial", () -> new Item(ItemPropertiesHelper.material()));

@@ -18,6 +18,8 @@
   "spell.power_of_the_void.mesmer_skin": "Mesmer Skin",
   "spell.power_of_the_void.bloodletting": "Bloodletting",
   "spell.power_of_the_void.roar": "Roar",
+  "spell.power_of_the_void.mach_rush": "Mach Rush",
+  "spell.power_of_the_void.kinetic_plating": "Kinetic Plating",
 
   "effect.power_of_the_void.redline": "Redline",
   "effect.power_of_the_void.invulnerable": "Invulnerable",
@@ -25,6 +27,8 @@
   "effect.power_of_the_void.mesmer_skin": "Mesmer Skin",
   "effect.power_of_the_void.roar": "Roar",
   "effect.power_of_the_void.heat": "Heat",
+  "effect.power_of_the_void.mach_rush": "Mach Rush",
+  "effect.power_of_the_void.kinetic_plating": "Kinetic Plating",
 
   "spell.power_of_the_void.thermal_sunder.guide": "Siphon kinetic energy from the area, inflicting Chilled effect on nearby entities, then reverses the process, damage and ignite nearby entities, remove all their armor permanently if they are chilled.(CAUTION: fire damage will destroy drops, be careful when casting.)",
   "spell.power_of_the_void.redline.guide": " Boost your spell power, attack speed, and cast speed.",
@@ -33,5 +37,11 @@
   "spell.power_of_the_void.roar.guide": "Grants all nearby players increased damage for a short duration.",
   "spell.power_of_the_void.thermal_sunder_ice.guide": "Siphon kinetic energy from the area, inflicting Chilled effect on nearby mobs, for those already effected. If they already effected by Heat, remove their armor permanently and deals more damage base on Heat levels.",
   "spell.power_of_the_void.thermal_sunder_fire.guide": "Release kinetic energy to the area, damage and inflicting Heat effect on nearby mobs. When cast on enemies already affected by Heat, Thermal Sunder deals more damage. If they already effected by Chilled, remove their armor permanently and deals more damage base on Heat levels.",
+<<<<<<< Updated upstream
   "spell.power_of_the_void.thermal_sunder_new.guide": "Siphon kinetic energy from the area, inflicting Chilled effect on nearby entities, hold Ctrl while casting reverses the process, damage and ignite nearby entities, remove their armor permanently and deal extra damage if they are inflicted by the other effect."
+=======
+  "spell.power_of_the_void.thermal_sunder_new.guide": "Release kinetic energy from the area, damage and ignite nearby entities, hold Ctrl or Shift while casting reverses the process, inflicting Chilled effect on nearby entities, remove their armor permanently and deal extra damage if they are inflicted by the other effect.",
+  "spell.power_of_the_void.mach_rush.guide": "Burst into a hyper-sprint bowling over enemies and charging the battery. Crashing into solid objects generates a powerful shockwave.",
+  "spell.power_of_the_void.kinetic_plating.guide": "Generate armor plating that converts a portion of absorbed Kinetic Damage into Energy. Also protects player from being knocked back. Damage Resistance is relative to the battery level."
+>>>>>>> Stashed changes
 }

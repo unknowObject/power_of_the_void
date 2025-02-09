@@ -51,8 +51,7 @@ public class BloodlettingSpell extends AbstractSpell {
         return List.of(
                 Component.translatable("ui.power_of_the_void.life_cost", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
                 Component.translatable("ui.power_of_the_void.mana_add", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1))
-
-                );
+        );
     }
 
     @Override

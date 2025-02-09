@@ -29,8 +29,8 @@ public class RedlineSpell extends AbstractSpell {
     @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(
-                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 20, 1)),
-                Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.spell_power")),
+                Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getSpellPower(spellLevel, caster) * 40, 1)),
+                //Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.spell_power")),
                 Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.name.generic.attack_speed"))
                 //Component.translatable("attribute.modifier.plus.1", Utils.stringTruncation(getPercentSpellPower(spellLevel, caster), 0), Component.translatable("attribute.irons_spellbooks.spell_power"))
         );
@@ -47,7 +47,7 @@ public class RedlineSpell extends AbstractSpell {
         this.manaCostPerLevel = 0;
         this.baseSpellPower = 15;
         this.spellPowerPerLevel = 3;
-        this.castTime = 30;
+        this.castTime = 20;
         this.baseManaCost = 100;
     }
 
@@ -83,8 +83,14 @@ public class RedlineSpell extends AbstractSpell {
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        entity.addEffect(new MobEffectInstance(VMobEffectRegistry.REDLINE.get(), (int) (getSpellPower(spellLevel, entity) * 20), spellLevel - 1, false, false, true));
+        entity.addEffect(new MobEffectInstance(VMobEffectRegistry.REDLINE.get(), (int) (getSpellPower(spellLevel, entity) * 40), spellLevel - 1, false, false, true));
 
+<<<<<<< Updated upstream
+=======
+        entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
+            battery.setRedlineDuration((int) getSpellPower(spellLevel, entity) * 40);
+        });
+>>>>>>> Stashed changes
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 

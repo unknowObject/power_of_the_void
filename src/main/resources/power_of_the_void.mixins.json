@@ -3,10 +3,12 @@
   "minVersion": "0.8",
   "package": "org.yunz21.powerofthevoid.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "potvoid.refmap.json",
+  "refmap": "power_of_the_void.refmap.json",
   "mixins": [
+    "MixinEntityRenderer"
   ],
   "client": [
+    "MixinEntityRenderer"
   ],
   "injectors": {
     "defaultRequire": 1

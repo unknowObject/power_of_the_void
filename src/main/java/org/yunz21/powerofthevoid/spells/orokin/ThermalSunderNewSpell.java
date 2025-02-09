@@ -52,7 +52,7 @@ public class ThermalSunderNewSpell extends AbstractSpell {
             .setMinRarity(SpellRarity.LEGENDARY)
             .setSchoolResource(VSchoolRegistry.OROKIN_RESOURCE)
             .setMaxLevel(4)
-            .setCooldownSeconds(1)
+            .setCooldownSeconds(0)
             .build();
 
     public ThermalSunderNewSpell() {
@@ -68,6 +68,7 @@ public class ThermalSunderNewSpell extends AbstractSpell {
         return List.of(
                 Component.translatable("ui.power_of_the_void.iceDamage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
                 Component.translatable("ui.power_of_the_void.fireDamage", Utils.stringTruncation(getDamage(spellLevel, caster) * 1.5f, 2)),
+                Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2)),
                 Component.translatable("ui.irons_spellbooks.rend", Utils.stringTruncation(25, 1)),
                 Component.translatable("ui.irons_spellbooks.effect_length", Utils.timeFromTicks(getDuration(spellLevel, caster), 2)),
                 Component.translatable("ui.irons_spellbooks.radius", Utils.stringTruncation(getRadius(spellLevel, caster), 2))
@@ -160,7 +161,7 @@ public class ThermalSunderNewSpell extends AbstractSpell {
     }
 
     private float getDamage(int spellLevel, LivingEntity caster) {
-        return getSpellPower(spellLevel, caster) * .4f;
+        return getSpellPower(spellLevel, caster) * .2f;
     }
 
     public static float getRadius(int spellLevel, LivingEntity caster) {
@@ -169,6 +170,10 @@ public class ThermalSunderNewSpell extends AbstractSpell {
 
     public int getDuration(int spellLevel, LivingEntity caster) {
         return (int) (getSpellPower(spellLevel, caster) * 30);
+    }
+
+    public int getRendAmp (float charge) {
+        return (int) charge - 80;
     }
 
     @Override
@@ -193,15 +198,32 @@ public class ThermalSunderNewSpell extends AbstractSpell {
     private void castIceSpell(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {
         if (!entity.level().isClientSide) {
             float radius = getRadius(spellLevel, entity);
-            var damage = getDamage(spellLevel, entity);
 
+<<<<<<< Updated upstream
             MagicManager.spawnParticles(level, new ShockwaveParticleOptions(SchoolRegistry.ICE.get().getTargetingColor(), radius, false, "irons_spellbooks:snowflake"), entity.getX(), entity.getY() + .15f, entity.getZ(), 1, 0, 0, 0, 0, true);
             level.getEntities(entity, entity.getBoundingBox().inflate(radius, 4, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
                 if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
+=======
+            entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
 
-                    MagicManager.spawnParticles(level, ParticleHelper.SNOWFLAKE, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() * .5f, livingEntity.getZ(), 50, livingEntity.getBbWidth() * .5f, livingEntity.getBbHeight() * .5f, livingEntity.getBbWidth() * .5f, .03, false);
+                MagicManager.spawnParticles(level, new ShockwaveParticleOptions(SchoolRegistry.ICE.get().getTargetingColor(), radius, false, "irons_spellbooks:snowflake"), entity.getX(), entity.getY() + .15f, entity.getZ(), 1, 0, 0, 0, 0, true);
+                level.getEntities(entity, entity.getBoundingBox().inflate(radius, 4, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
+
+                    float charge = battery.getCharge();
+                    float damage = getDamage(spellLevel, entity) * (charge * 0.04f + 1.0f);
+                    int ampIce = 0;
+>>>>>>> Stashed changes
+
+                    if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
+
+                        if (entity.hasEffect(VMobEffectRegistry.REDLINE.get())) {
+                            ampIce = 3;
+                        }
+
+                        MagicManager.spawnParticles(level, ParticleHelper.SNOWFLAKE, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() * .5f, livingEntity.getZ(), 50, livingEntity.getBbWidth() * .5f, livingEntity.getBbHeight() * .5f, livingEntity.getBbWidth() * .5f, .03, false);
 
 
+<<<<<<< Updated upstream
                     if (livingEntity.hasEffect(VMobEffectRegistry.HEAT.get())) {
                         // If target already effected by heat, deal more damage base on heat level and clear heat effect, add 1 level chilled
                         int amp = Objects.requireNonNull(livingEntity.getEffect(VMobEffectRegistry.HEAT.get())).getAmplifier();
@@ -223,10 +245,54 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                         livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity)));
                         DamageSources.applyDamage(target, damage, getDamageSource(entity));
                         pullTargets(livingEntity, entity, 0.5f);
-                    }
-                }
+=======
+                        if (livingEntity.hasEffect(VMobEffectRegistry.HEAT.get())) {
+                            // If target already effected by heat, deal more damage base on heat level and clear heat effect, add 1 level chilled
+                            int amp = Objects.requireNonNull(livingEntity.getEffect(VMobEffectRegistry.HEAT.get())).getAmplifier();
+                            livingEntity.removeEffect(VMobEffectRegistry.HEAT.get());
+                            livingEntity.clearFire();
 
+                            if (battery.hasCharge(80)) {    // When Redline is active, freeze enemy if charge over 80
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), getDuration(spellLevel, entity), getRendAmp(charge)));
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), 5));
+                            } else {
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), 2));
+                            }
+
+                            DamageSources.applyDamage(target, damage * (float)Math.pow(2, amp + 1), getDamageSource(entity));
+                            pullTargets(livingEntity, entity, 1.0f);
+                        } else if (livingEntity.hasEffect(MobEffectRegistry.CHILLED.get())) {
+                            // If target not effected by heat, add 1 level chilled and deal damage
+                            int amp = Objects.requireNonNull(livingEntity.getEffect(MobEffectRegistry.CHILLED.get())).getAmplifier();
+                            livingEntity.removeEffect(MobEffectRegistry.CHILLED.get());
+
+                            if (battery.hasCharge(80)) {    // When Redline is active, freeze enemy if charge over 80
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), amp + 6));
+                            } else {
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), amp + 3));
+                            }
+
+                            DamageSources.applyDamage(target, damage, getDamageSource(entity));
+                            pullTargets(livingEntity, entity, 0.5f);
+                        } else {
+                            // If target not effected by heat, add 1 level chilled and deal damage
+                            if (battery.hasCharge(80)) {    // When Redline is active, freeze enemy if charge over 80
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), 5));
+                            } else {
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), 2));
+                            }                            DamageSources.applyDamage(target, damage, getDamageSource(entity));
+                            pullTargets(livingEntity, entity, 0.5f);
+                        }
+>>>>>>> Stashed changes
+                    }
+
+                });
+
+                battery.addCharge(10); // Gain charge while casting ice
+                ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(), battery.getMaxCharge(), battery.getPercent()), (ServerPlayer) entity);
+                //entity.sendSystemMessage(Component.literal("Gained charge"));
             });
+
         }
     }
 
@@ -234,16 +300,38 @@ public class ThermalSunderNewSpell extends AbstractSpell {
     private void castFireSpell(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {
         if (!entity.level().isClientSide) {
             float radius = getRadius(spellLevel, entity);
-            var damage = getDamage(spellLevel, entity) * 1.5f;
 
+<<<<<<< Updated upstream
             MagicManager.spawnParticles(level, new BlastwaveParticleOptions(((SchoolType) SchoolRegistry.FIRE.get()).getTargetingColor(), radius), entity.getX(), entity.getY() + (double)0.165F, entity.getZ(), 1, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F, true);
             Messages.sendToPlayersTrackingEntity(new ClientboundParticleShockwave(new Vec3(entity.getX(), entity.getY() + (double)0.165F, entity.getZ()), radius, (ParticleType) ParticleRegistry.FIRE_PARTICLE.get()), entity, true);
             level.getEntities(entity, entity.getBoundingBox().inflate((double)radius, (double)4.0F, (double)radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach((target) -> {
                 if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
+=======
+            entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
+                MagicManager.spawnParticles(level, new BlastwaveParticleOptions(((SchoolType) SchoolRegistry.FIRE.get()).getTargetingColor(), radius), entity.getX(), entity.getY() + (double)0.165F, entity.getZ(), 1, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F, true);
+                Messages.sendToPlayersTrackingEntity(new ClientboundParticleShockwave(new Vec3(entity.getX(), entity.getY() + (double)0.165F, entity.getZ()), radius, (ParticleType) ParticleRegistry.FIRE_PARTICLE.get()), entity, true);
+                level.getEntities(entity, entity.getBoundingBox().inflate((double)radius, (double)4.0F, (double)radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach((target) -> {
 
-                    MagicManager.spawnParticles(level, ParticleHelper.FIRE, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() * .5f, livingEntity.getZ(), 50, livingEntity.getBbWidth() * .5f, livingEntity.getBbHeight() * .5f, livingEntity.getBbWidth() * .5f, .03, false);
+                    float charge = battery.getCharge();
+                    float damage = getDamage(spellLevel, entity) * (charge * 0.04f + 1.0f) * 2f;
+                    int ampFire = 0;
+                    float damageFire = damage;
 
+                    if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
+>>>>>>> Stashed changes
 
+                        MagicManager.spawnParticles(level, ParticleHelper.FIRE, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() * .5f, livingEntity.getZ(), 50, livingEntity.getBbWidth() * .5f, livingEntity.getBbHeight() * .5f, livingEntity.getBbWidth() * .5f, .03, false);
+                        if (entity.hasEffect(VMobEffectRegistry.REDLINE.get())) {
+                            damageFire = damage * 2;
+                            ampFire = 1;
+                        }
+
+                        if (livingEntity.hasEffect(MobEffectRegistry.CHILLED.get())) {
+                            // If target already effected by chilled, deal more damage base on chilled level and clear chilled effect, add 1 level heat
+                            int amp = Objects.requireNonNull(livingEntity.getEffect(MobEffectRegistry.CHILLED.get())).getAmplifier();
+                            livingEntity.removeEffect(MobEffectRegistry.CHILLED.get());
+
+<<<<<<< Updated upstream
                     if (livingEntity.hasEffect(MobEffectRegistry.CHILLED.get())) {
                         // If target already effected by chilled, deal more damage base on chilled level and clear chilled effect, add 1 level heat
                         int amp = Objects.requireNonNull(livingEntity.getEffect(MobEffectRegistry.CHILLED.get())).getAmplifier();
@@ -264,9 +352,46 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                         livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity)));
                         DamageSources.applyDamage(target, damage, getDamageSource(entity));
                         pullTargets(livingEntity, entity, 0.1f);
+=======
+                            livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity), ampFire));
+                            if (battery.hasCharge(80)) {
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), getDuration(spellLevel, entity), getRendAmp(charge)));
+                            }
+
+                            DamageSources.applyDamage(target, damage * (float) Math.pow(2, (double) (amp + 1) / 3), getDamageSource(entity));
+                            pushTargets(livingEntity, entity, 0.2f);
+                        } else if (livingEntity.hasEffect(VMobEffectRegistry.HEAT.get())) {
+                            // If target not effected by heat, add 1 level heat and deal more damage
+                            int amp = Objects.requireNonNull(livingEntity.getEffect(VMobEffectRegistry.HEAT.get())).getAmplifier();
+                            livingEntity.removeEffect(VMobEffectRegistry.HEAT.get());
+                            livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity), amp + ampFire + 1));
+
+                            if (battery.hasCharge(80)) {
+                                DamageSources.applyDamage(target, 2 * damage * (float) Math.pow(1.5, amp + 1), getDamageSource(entity));
+                            } else {
+                                DamageSources.applyDamage(target, damage * (float) Math.pow(1.5, amp + 1), getDamageSource(entity));
+                            }
+                            //pullTargets(livingEntity, entity, 0.1f);
+                        } else {
+                            // If target not effected by heat, add 1 level heat and deal damage
+                            livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity), ampFire));
+                            if (battery.hasCharge(80)) {
+                                DamageSources.applyDamage(target, 2 * damage, getDamageSource(entity));
+                            } else {
+                                DamageSources.applyDamage(target, damage, getDamageSource(entity));
+                            }
+                            //pullTargets(livingEntity, entity, 0.1f);
+                        }
+>>>>>>> Stashed changes
                     }
-                }
+                });
+
+                battery.consumeCharge(10); // Consume charge while casting fire
+                ModMessages.sendToPlayer(new BatteryDataSyncPacket(battery.getCharge(),battery.getMaxCharge(), battery.getPercent()), (ServerPlayer) entity);
+                //entity.sendSystemMessage(Component.literal("Consumed charge"));
             });
+
+
         }
     }
 }

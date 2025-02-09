@@ -8,12 +8,15 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.yunz21.powerofthevoid.PowerOfTheVoid;
 import org.yunz21.powerofthevoid.effects.*;
+import org.yunz21.powerofthevoid.event.KineticPlatingEvent;
 import org.yunz21.powerofthevoid.spells.orokin.MesmerSkinSpell;
 
+@Mod.EventBusSubscriber(modid = PowerOfTheVoid.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class VMobEffectRegistry {
     public static final DeferredRegister<MobEffect> MOB_EFFECT_DEFERRED_REGISTER = DeferredRegister.create(Registries.MOB_EFFECT, PowerOfTheVoid.MODID);
 
@@ -22,16 +25,29 @@ public class VMobEffectRegistry {
     }
 
     public static final RegistryObject<MobEffect> REDLINE = MOB_EFFECT_DEFERRED_REGISTER.register(
+<<<<<<< Updated upstream
             "redline", () -> new RedlineEffect(MobEffectCategory.BENEFICIAL, 0)
                     .addAttributeModifier(AttributeRegistry.SPELL_POWER.get(), "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", RedlineEffect.SPELL_POWER_PER_LEVEL, AttributeModifier.Operation.MULTIPLY_TOTAL)
+=======
+            "redline", () -> new RedlineEffect(MobEffectCategory.BENEFICIAL, 0x000000)
+                    //.addAttributeModifier(AttributeRegistry.SPELL_POWER.get(), "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", RedlineEffect.SPELL_POWER_PER_LEVEL, AttributeModifier.Operation.MULTIPLY_TOTAL)
+>>>>>>> Stashed changes
                     .addAttributeModifier(AttributeRegistry.CAST_TIME_REDUCTION.get(), "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", .05, AttributeModifier.Operation.MULTIPLY_TOTAL)
                     .addAttributeModifier(Attributes.ATTACK_SPEED, "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", RedlineEffect.ATTACK_SPEED_PER_LEVEL, AttributeModifier.Operation.MULTIPLY_TOTAL)
                     //.addAttributeModifier(Attributes.MOVEMENT_SPEED, "9f90bcfe-80bc-4c03-b58c-ead7bc88734f", .10, AttributeModifier.Operation.MULTIPLY_TOTAL)
     );
+<<<<<<< Updated upstream
     public static final RegistryObject<MobEffect> MESMER_SKIN = MOB_EFFECT_DEFERRED_REGISTER.register("mesmer_skin", () -> new MesmerSkinEffect(MobEffectCategory.BENEFICIAL, 0));
     public static final RegistryObject<MobEffect> INVULNERABLE = MOB_EFFECT_DEFERRED_REGISTER.register("invulnerable", () -> new InvulnerableEffect(MobEffectCategory.BENEFICIAL, 0));
     public static final RegistryObject<MobEffect> ROAR = MOB_EFFECT_DEFERRED_REGISTER.register("roar", () -> new InvulnerableEffect(MobEffectCategory.BENEFICIAL, 0));
 
+=======
+    public static final RegistryObject<MobEffect> MESMER_SKIN = MOB_EFFECT_DEFERRED_REGISTER.register("mesmer_skin", () -> new MesmerSkinEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final RegistryObject<MobEffect> INVULNERABLE = MOB_EFFECT_DEFERRED_REGISTER.register("invulnerable", () -> new InvulnerableEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final RegistryObject<MobEffect> ROAR = MOB_EFFECT_DEFERRED_REGISTER.register("roar", () -> new RoarEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final RegistryObject<MobEffect> MACH_RUSH = MOB_EFFECT_DEFERRED_REGISTER.register("mach_rush", () -> new MachRushEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+    public static final RegistryObject<MobEffect> KINETIC_PLATING = MOB_EFFECT_DEFERRED_REGISTER.register("kinetic_plating", () -> new KineticPlatingEffect(MobEffectCategory.BENEFICIAL, 0x000000));
+>>>>>>> Stashed changes
 
     public static final RegistryObject<MobEffect> STUNNED = MOB_EFFECT_DEFERRED_REGISTER.register("stunned", () -> new StunnedEffect(MobEffectCategory.HARMFUL, 0xff4800));
     public static final RegistryObject<MobEffect> HEAT = MOB_EFFECT_DEFERRED_REGISTER.register("heat", () -> new HeatEffect(MobEffectCategory.HARMFUL, 0x9f0be3));
