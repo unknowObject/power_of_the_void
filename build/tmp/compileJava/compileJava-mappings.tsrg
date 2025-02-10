@@ -1,0 +1,5 @@
+org/yunz21/powerofthevoid/mixin/MixinEntityRenderer level f_19853_
+org/yunz21/powerofthevoid/mixin/MixinEntityRenderer remainingFireTicks f_19831_
+org/yunz21/powerofthevoid/mixin/MixinEntityRenderer getBoundingBox ()Lnet/minecraft/world/phys/AABB; m_20191_
+org/yunz21/powerofthevoid/mixin/MixinEntityRenderer setRemainingFireTicks (I)V m_7311_
+org/yunz21/powerofthevoid/mixin/MixinEntityRenderer removeTag (Ljava/lang/String;)Z m_20137_

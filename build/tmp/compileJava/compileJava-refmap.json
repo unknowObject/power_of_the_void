@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "org/yunz21/powerofthevoid/mixin/MixinEntityRenderer": {
+      "isOnFire": "Lnet/minecraft/world/entity/Entity;m_6060_()Z"
+    }
+  },
+  "data": {
+    "searge": {
+      "org/yunz21/powerofthevoid/mixin/MixinEntityRenderer": {
+        "isOnFire": "Lnet/minecraft/world/entity/Entity;m_6060_()Z"
+      }
+    }
+  }
+}

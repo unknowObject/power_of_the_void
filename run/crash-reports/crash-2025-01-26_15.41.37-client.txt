@@ -1,0 +1,360 @@
+---- Minecraft Crash Report ----
+// You should try our sister game, Minceraft!
+
+Time: 2025-01-26 15:41:37
+Description: Colliding entity with block
+
+java.lang.NullPointerException: Cannot invoke "net.minecraft.server.MinecraftServer.getPlayerList()" because the return value of "net.minecraft.world.level.Level.getServer()" is null
+	at io.redspace.ironsspellbooks.capabilities.magic.MagicManager.spawnParticles(MagicManager.java:120) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar%23198!/:1.20.1-3.4.0.7] {re:classloading}
+	at org.yunz21.powerofthevoid.event.ClientEvent.onLivingDamage(PlayerEvent.java:106) ~[%23196!/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.event.__PlayerEvent_onLivingDamage_LivingAttackEvent.invoke(.dynamic) ~[%23196!/:?] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.5.jar:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar:?] {}
+	at net.minecraftforge.common.ForgeHooks.onPlayerAttack(ForgeHooks.java:276) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraft.client.player.LocalPlayer.hurt(LocalPlayer.java:154) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.block.CactusBlock.entityInside(CactusBlock.java:96) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.entityInside(BlockBehaviour.java:766) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraft.world.entity.Entity.checkInsideBlocks(Entity.java:998) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.move(LocalPlayer.java:855) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.aiStep(LocalPlayer.java:782) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.AbstractClientPlayer.tick(AbstractClientPlayer.java:70) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:APP:mixins.irons_spellbooks.json:AbstractClientPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.player.LocalPlayer.tick(LocalPlayer.java:189) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:274) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:479) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:256) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:254) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1112) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Suspected Mods: 
+	Iron's Spells 'n Spellbooks (irons_spellbooks), Version: 1.20.1-3.4.0.7
+		Issue tracker URL: https://github.com/iron431/Irons-Spells-n-Spellbooks/issues
+		at TRANSFORMER/irons_spellbooks@1.20.1-3.4.0.7/io.redspace.ironsspellbooks.capabilities.magic.MagicManager.spawnParticles(MagicManager.java:120)
+
+	Power of the Void (power_of_the_void), Version: 1.0-SNAPSHOT
+		at TRANSFORMER/power_of_the_void@1.0-SNAPSHOT/org.yunz21.powerofthevoid.event.ClientEvent.onLivingDamage(PlayerEvent.java:106)
+Stacktrace:
+	at io.redspace.ironsspellbooks.capabilities.magic.MagicManager.spawnParticles(MagicManager.java:120) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar%23198!/:1.20.1-3.4.0.7] {re:classloading}
+	at org.yunz21.powerofthevoid.event.ClientEvent.onLivingDamage(PlayerEvent.java:106) ~[%23196!/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.event.__PlayerEvent_onLivingDamage_LivingAttackEvent.invoke(.dynamic) ~[%23196!/:?] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.common.ForgeHooks.onPlayerAttack(ForgeHooks.java:276) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraft.client.player.LocalPlayer.hurt(LocalPlayer.java:154) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.block.CactusBlock.entityInside(CactusBlock.java:96) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.entityInside(BlockBehaviour.java:766) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.entity.Entity.checkInsideBlocks(Entity.java:998) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.move(LocalPlayer.java:855) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.aiStep(LocalPlayer.java:782) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.AbstractClientPlayer.tick(AbstractClientPlayer.java:70) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:APP:mixins.irons_spellbooks.json:AbstractClientPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.player.LocalPlayer.tick(LocalPlayer.java:189) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:274) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:479) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:256) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:254) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+-- Block being collided with --
+Details:
+	Block: Block{minecraft:cactus}[age=0]
+	Block location: World: (42,63,-68), Section: (at 10,15,12 in 2,3,-5; chunk contains blocks 32,-64,-80 to 47,319,-65), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+Stacktrace:
+	at net.minecraft.world.entity.Entity.checkInsideBlocks(Entity.java:998) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.move(LocalPlayer.java:855) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.aiStep(LocalPlayer.java:782) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.AbstractClientPlayer.tick(AbstractClientPlayer.java:70) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:APP:mixins.irons_spellbooks.json:AbstractClientPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.player.LocalPlayer.tick(LocalPlayer.java:189) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:274) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:479) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:256) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:254) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1112) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Entity being checked for collision --
+Details:
+	Entity Type: minecraft:player (net.minecraft.client.player.LocalPlayer)
+	Entity ID: 255
+	Entity Name: Dev
+	Entity's Exact location: 41.74, 63.00, -67.14
+	Entity's Block location: World: (41,63,-68), Section: (at 9,15,12 in 2,3,-5; chunk contains blocks 32,-64,-80 to 47,319,-65), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+	Entity's Momentum: 0.21, -0.00, -0.06
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.move(LocalPlayer.java:855) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.LocalPlayer.aiStep(LocalPlayer.java:782) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.client.player.AbstractClientPlayer.tick(AbstractClientPlayer.java:70) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:mixin:APP:mixins.irons_spellbooks.json:AbstractClientPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.player.LocalPlayer.tick(LocalPlayer.java:189) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLocalPlayer,pl:mixin:APP:mixins.irons_spellbooks.json:LocalPlayerMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:274) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:479) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:256) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:254) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1112) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:player (net.minecraft.client.player.LocalPlayer)
+	Entity ID: 255
+	Entity Name: Dev
+	Entity's Exact location: 41.74, 63.00, -67.14
+	Entity's Block location: World: (41,63,-68), Section: (at 9,15,12 in 2,3,-5; chunk contains blocks 32,-64,-80 to 47,319,-65), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+	Entity's Momentum: 0.21, -0.00, -0.06
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:479) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:256) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:254) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1112) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [LocalPlayer['Dev'/255, l='ClientLevel', x=41.74, y=63.00, z=-67.14]]
+	Chunk stats: 961, 609
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,71,0), Section: (at 0,7,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 227677 game time, 227677 day time
+	Server brand: forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.fillReportDetails(ClientLevel.java:455) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2319) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:735) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla, mod_resources
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.13, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 980922200 bytes (935 MiB) / 2348810240 bytes (2240 MiB) up to 4223664128 bytes (4028 MiB)
+	CPUs: 20
+	Processor Vendor: GenuineIntel
+	Processor Name: 12th Gen Intel(R) Core(TM) i7-12700H
+	Identifier: Intel64 Family 6 Model 154 Stepping 3
+	Microarchitecture: Alder Lake
+	Frequency (GHz): 2.69
+	Number of physical packages: 1
+	Number of physical CPUs: 14
+	Number of logical CPUs: 20
+	Graphics card #0 name: Intel(R) Iris(R) Xe Graphics
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x46a6
+	Graphics card #0 versionInfo: DriverVersion=31.0.101.4502
+	Graphics card #1 name: NVIDIA GeForce RTX 3070 Laptop GPU
+	Graphics card #1 vendor: NVIDIA (0x10de)
+	Graphics card #1 VRAM (MB): 4095.00
+	Graphics card #1 deviceId: 0x24dd
+	Graphics card #1 versionInfo: DriverVersion=32.0.15.5612
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 4.80
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 4.80
+	Memory slot #1 type: Unknown
+	Virtual memory max (MB): 41708.49
+	Virtual memory used (MB): 34411.21
+	Swap memory total (MB): 25600.00
+	Swap memory used (MB): 2334.76
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Launched Version: MOD_DEV
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: NVIDIA GeForce RTX 3070 Laptop GPU/PCIe/SSE2 GL version 4.6.0 NVIDIA 556.12, NVIDIA Corporation
+	Window size: 2560x1566
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: 
+	Current Language: zh_cn
+	CPU: 20x 12th Gen Intel(R) Core(TM) i7-12700H
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/255, l='ServerLevel[新的世界]', x=41.54, y=63.00, z=-67.08]]
+	Data Packs: vanilla, mod:power_of_the_void, mod:caelus (incompatible), mod:forge, mod:curios (incompatible), mod:geckolib, mod:playeranimator (incompatible), mod:irons_spellbooks, mod:jei
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	ModLauncher: 10.0.10+10.0.10+main.22f00f84
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.10.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.10.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp|Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |Power of the Void             |power_of_the_void             |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+		caelus-forge-3.1.0+1.20_mapped_official_1.20.1.jar|Caelus API                    |caelus                        |3.1.0+1.20          |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |47.3.20             |DONE      |Manifest: NOSIGNATURE
+		curios-forge-5.4.7+1.20.1_mapped_official_1.20.1.j|Curios API                    |curios                        |5.4.7+1.20.1        |DONE      |Manifest: NOSIGNATURE
+		geckolib-forge-1.20.1-4.2.2_mapped_official_1.20.1|GeckoLib 4                    |geckolib                      |4.2.2               |DONE      |Manifest: NOSIGNATURE
+		player-animation-lib-forge-1.0.2-rc1+1.20_mapped_o|Player Animator               |playeranimator                |1.0.2-rc1+1.20      |DONE      |Manifest: NOSIGNATURE
+		irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.|Iron's Spells 'n Spellbooks   |irons_spellbooks              |1.20.1-3.4.0.7      |DONE      |Manifest: NOSIGNATURE
+		jei-1.20.1-forge-15.2.0.22_mapped_official_1.20.1.|Just Enough Items             |jei                           |15.2.0.22           |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 90c2996f-5be1-4a5f-adb1-2ed39182ce0d
+	FML: 47.3
+	Forge: net.minecraftforge:47.3.20

@@ -1,0 +1,67 @@
+{
+  "thermal_sunder_ice": {
+    "sounds": [
+      "power_of_the_void:thermal_sunder_ice"
+    ]
+  },
+  "thermal_sunder_fire": {
+    "sounds": [
+      "power_of_the_void:thermal_sunder_fire"
+    ]
+  },
+  "redline_start": {
+    "sounds": [
+      "power_of_the_void:redline_start"
+    ]
+  },
+  "redline_end": {
+    "sounds": [
+      "power_of_the_void:redline_end"
+    ]
+  },
+  "mesmer_skin_start": {
+    "sounds": [
+      "power_of_the_void:mesmer_skin_start"
+    ]
+  },
+  "mesmer_skin_end": {
+    "sounds": [
+      "power_of_the_void:mesmer_skin_end"
+    ]
+  },
+  "bloodletting": {
+    "sounds": [
+      "power_of_the_void:bloodletting"
+    ]
+  },
+  "roar": {
+    "sounds": [
+      "power_of_the_void:roar"
+    ]
+  },
+  "mach_rush": {
+    "sounds": [
+      "power_of_the_void:mach_rush"
+    ]
+  },
+  "hit_wall": {
+    "sounds": [
+      "power_of_the_void:hit_wall"
+    ]
+  },
+  "full_charge": {
+    "sounds": [
+      "power_of_the_void:full_charge"
+    ]
+  },
+  "kinetic_plating": {
+    "sounds": [
+      "power_of_the_void:kinetic_plating"
+    ]
+  },
+  "redline_effect_end": {
+    "sounds": [
+      "power_of_the_void:redline_effect_end"
+    ]
+  }
+}

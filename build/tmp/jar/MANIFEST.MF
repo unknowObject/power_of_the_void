@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Specification-Title: power_of_the_void
+Specification-Vendor: yunz21
+Specification-Version: 1
+Implementation-Title: power_of_thevoid
+Implementation-Version: 0.3.3-BETA
+Implementation-Vendor: yunz21
+MixinConfigs: power_of_the_void.mixins.json
+Implementation-Timestamp: 2025-02-09T23:02:56+0800
+

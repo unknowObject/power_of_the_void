@@ -1,0 +1,229 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 2025-01-25 22:57:06
+Description: Colliding entity with block
+
+java.lang.ClassCastException: class io.redspace.ironsspellbooks.api.magic.MagicData cannot be cast to class org.yunz21.powerofthevoid.magic.VMagicData (io.redspace.ironsspellbooks.api.magic.MagicData is in module irons_spellbooks@1.20.1-3.4.0.7 of loader 'TRANSFORMER' @43d3aba5; org.yunz21.powerofthevoid.magic.VMagicData is in module power_of_the_void@1.0-SNAPSHOT of loader 'TRANSFORMER' @43d3aba5)
+	at org.yunz21.powerofthevoid.magic.VMagicData.getPlayerMagicData(VMagicData.java:268) ~[%23196!/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.event.ClientEvent.onLivingTakeAttack(PlayerEvent.java:17) ~[%23196!/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.event.__PlayerEvent_onLivingTakeAttack_LivingAttackEvent.invoke(.dynamic) ~[%23196!/:?] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.common.ForgeHooks.onPlayerAttack(ForgeHooks.java:276) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraft.world.entity.player.Player.hurt(Player.java:812) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.server.level.ServerPlayer.hurt(ServerPlayer.java:695) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:computing_frames,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.block.CactusBlock.entityInside(CactusBlock.java:96) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.entityInside(BlockBehaviour.java:766) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.entity.Entity.checkInsideBlocks(Entity.java:998) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:467) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:computing_frames,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:262) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.Connection.tick(Connection.java:263) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:142) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:907) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:89) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:661) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Suspected Mod: 
+	Power of the Void (power_of_the_void), Version: 1.0-SNAPSHOT
+		at TRANSFORMER/power_of_the_void@1.0-SNAPSHOT/org.yunz21.powerofthevoid.magic.VMagicData.getPlayerMagicData(VMagicData.java:268)
+Stacktrace:
+	at org.yunz21.powerofthevoid.magic.VMagicData.getPlayerMagicData(VMagicData.java:268) ~[%23196!/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.event.ClientEvent.onLivingTakeAttack(PlayerEvent.java:17) ~[%23196!/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.event.__PlayerEvent_onLivingTakeAttack_LivingAttackEvent.invoke(.dynamic) ~[%23196!/:?] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%23118!/:?] {}
+	at net.minecraftforge.common.ForgeHooks.onPlayerAttack(ForgeHooks.java:276) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraft.world.entity.player.Player.hurt(Player.java:812) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.server.level.ServerPlayer.hurt(ServerPlayer.java:695) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:computing_frames,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.block.CactusBlock.entityInside(CactusBlock.java:96) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase.entityInside(BlockBehaviour.java:766) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.world.entity.Entity.checkInsideBlocks(Entity.java:998) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+-- Block being collided with --
+Details:
+	Block: Block{minecraft:cactus}[age=3]
+	Block location: World: (512,67,-193), Section: (at 0,3,15 in 32,4,-13; chunk contains blocks 512,-64,-208 to 527,319,-193), Region: (1,-1; contains chunks 32,-32 to 63,-1, blocks 512,-64,-512 to 1023,319,-1)
+Stacktrace:
+	at net.minecraft.world.entity.Entity.checkInsideBlocks(Entity.java:998) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:467) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:computing_frames,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:262) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.Connection.tick(Connection.java:263) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:142) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:907) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:89) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:661) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) ~[?:?] {}
+
+
+-- Entity being checked for collision --
+Details:
+	Entity Type: minecraft:player (net.minecraft.server.level.ServerPlayer)
+	Entity ID: 137
+	Entity Name: Dev
+	Entity's Exact location: 512.06, 67.00, -191.71
+	Entity's Block location: World: (512,67,-192), Section: (at 0,3,0 in 32,4,-12; chunk contains blocks 512,-64,-192 to 527,319,-177), Region: (1,-1; contains chunks 32,-32 to 63,-1, blocks 512,-64,-512 to 1023,319,-1)
+	Entity's Momentum: 0.00, -0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.entity.Entity.tryCheckInsideBlocks(Entity.java:773) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.Entity.move(Entity.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:curios.mixins.json:AccessorEntity,pl:mixin:APP:mixins.irons_spellbooks.json:EntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:ClientEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.handleRelativeFrictionAndCalculateMovement(LivingEntity.java:2195) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.travel(LivingEntity.java:2132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.travel(Player.java:1423) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2605) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:501) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2298) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:caelus.mixins.json:MixinLivingEntity,pl:mixin:APP:curios.mixins.json:MixinLivingEntity,pl:mixin:APP:mixins.irons_spellbooks.json:LivingEntityMixin,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:241) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:playerAnimator-common.mixins.json:PlayerEntityMixin,pl:mixin:APP:mixins.irons_spellbooks.json:PlayerMixin,pl:mixin:A}
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:467) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:computing_frames,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:262) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.Connection.tick(Connection.java:263) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:142) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:907) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:89) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:661) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) ~[?:?] {}
+
+
+-- Player being ticked --
+Details:
+	Entity Type: minecraft:player (net.minecraft.server.level.ServerPlayer)
+	Entity ID: 137
+	Entity Name: Dev
+	Entity's Exact location: 512.06, 67.00, -191.71
+	Entity's Block location: World: (512,67,-192), Section: (at 0,3,0 in 32,4,-12; chunk contains blocks 512,-64,-192 to 527,319,-177), Region: (1,-1; contains chunks 32,-32 to 63,-1, blocks 512,-64,-512 to 1023,319,-1)
+	Entity's Momentum: 0.00, -0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:467) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:computing_frames,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:262) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.Connection.tick(Connection.java:263) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:142) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:907) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:814) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:89) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:661) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.13, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 1374764032 bytes (1311 MiB) / 2415919104 bytes (2304 MiB) up to 4223664128 bytes (4028 MiB)
+	CPUs: 20
+	Processor Vendor: GenuineIntel
+	Processor Name: 12th Gen Intel(R) Core(TM) i7-12700H
+	Identifier: Intel64 Family 6 Model 154 Stepping 3
+	Microarchitecture: Alder Lake
+	Frequency (GHz): 2.69
+	Number of physical packages: 1
+	Number of physical CPUs: 14
+	Number of logical CPUs: 20
+	Graphics card #0 name: Intel(R) Iris(R) Xe Graphics
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x46a6
+	Graphics card #0 versionInfo: DriverVersion=31.0.101.4502
+	Graphics card #1 name: NVIDIA GeForce RTX 3070 Laptop GPU
+	Graphics card #1 vendor: NVIDIA (0x10de)
+	Graphics card #1 VRAM (MB): 4095.00
+	Graphics card #1 deviceId: 0x24dd
+	Graphics card #1 versionInfo: DriverVersion=32.0.15.5612
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 4.80
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 4.80
+	Memory slot #1 type: Unknown
+	Virtual memory max (MB): 41708.49
+	Virtual memory used (MB): 32897.58
+	Swap memory total (MB): 25600.00
+	Swap memory used (MB): 2470.55
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/137, l='ServerLevel[新的世界]', x=512.06, y=67.00, z=-191.71]]
+	Data Packs: vanilla, mod:power_of_the_void, mod:caelus (incompatible), mod:forge, mod:curios (incompatible), mod:geckolib, mod:playeranimator (incompatible), mod:irons_spellbooks, mod:jei
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.10+10.0.10+main.22f00f84
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.10.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.10.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp|Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |Power of the Void             |power_of_the_void             |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+		caelus-forge-3.1.0+1.20_mapped_official_1.20.1.jar|Caelus API                    |caelus                        |3.1.0+1.20          |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |47.3.20             |DONE      |Manifest: NOSIGNATURE
+		curios-forge-5.4.7+1.20.1_mapped_official_1.20.1.j|Curios API                    |curios                        |5.4.7+1.20.1        |DONE      |Manifest: NOSIGNATURE
+		geckolib-forge-1.20.1-4.2.2_mapped_official_1.20.1|GeckoLib 4                    |geckolib                      |4.2.2               |DONE      |Manifest: NOSIGNATURE
+		player-animation-lib-forge-1.0.2-rc1+1.20_mapped_o|Player Animator               |playeranimator                |1.0.2-rc1+1.20      |DONE      |Manifest: NOSIGNATURE
+		irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.|Iron's Spells 'n Spellbooks   |irons_spellbooks              |1.20.1-3.4.0.7      |DONE      |Manifest: NOSIGNATURE
+		jei-1.20.1-forge-15.2.0.22_mapped_official_1.20.1.|Just Enough Items             |jei                           |15.2.0.22           |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 41b3676b-09c2-49e4-af10-819c9e34cd85
+	FML: 47.3
+	Forge: net.minecraftforge:47.3.20

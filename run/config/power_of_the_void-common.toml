@@ -1,0 +1,6 @@
+
+#General settings for the mod.
+[general]
+	#Should having fire resistance stop things from being on fire visually?
+	fireResistanceExtinguish = true
+

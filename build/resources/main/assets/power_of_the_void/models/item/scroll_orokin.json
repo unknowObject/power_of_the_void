@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "power_of_the_void:item/scroll_orokin"
+    }
+}

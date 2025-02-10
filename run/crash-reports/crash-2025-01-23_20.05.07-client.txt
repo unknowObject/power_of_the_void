@@ -1,0 +1,242 @@
+---- Minecraft Crash Report ----
+// Hey, that tickles! Hehehe!
+
+Time: 2025-01-23 20:05:07
+Description: Unexpected error
+
+java.lang.IllegalStateException: LazyOptional is empty or otherwise returned null from getValue() unexpectedly
+	at net.minecraftforge.common.util.LazyOptional.getValueUnsafe(LazyOptional.java:112) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at net.minecraftforge.common.util.LazyOptional.resolve(LazyOptional.java:210) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading}
+	at io.redspace.ironsspellbooks.config.ServerConfigs$SpellConfigParameters.school(ServerConfigs.java:276) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar:1.20.1-3.4.0.7] {re:classloading}
+	at io.redspace.ironsspellbooks.api.spells.AbstractSpell.getSchoolType(AbstractSpell.java:124) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar:1.20.1-3.4.0.7] {re:classloading}
+	at io.redspace.ironsspellbooks.api.spells.AbstractSpell.getSpellPower(AbstractSpell.java:204) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar:1.20.1-3.4.0.7] {re:classloading}
+	at org.yunz21.powerofthevoid.spells.orokin.ThermalThunderSpell.getDuration(ThermalThunderSpell.java:93) ~[main/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.spells.orokin.ThermalThunderSpell.getUniqueInfo(ThermalThunderSpell.java:35) ~[main/:?] {re:classloading}
+	at io.redspace.ironsspellbooks.util.TooltipsUtils.formatScrollTooltip(TooltipsUtils.java:105) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar:1.20.1-3.4.0.7] {re:classloading}
+	at io.redspace.ironsspellbooks.item.Scroll.appendHoverText(Scroll.java:104) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar:1.20.1-3.4.0.7] {re:classloading}
+	at net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:631) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,xf:fml:forge:itemstack,re:classloading,xf:fml:forge:itemstack,pl:mixin:APP:mixins.irons_spellbooks.json:ItemStackMixin,pl:mixin:A}
+	at net.minecraft.client.Minecraft.lambda$createSearchTrees$10(Minecraft.java:758) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.PlainTextSearchTree.create(PlainTextSearchTree.java:25) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.FullTextSearchTree.refresh(FullTextSearchTree.java:26) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.SearchRegistry$TreeEntry.populate(SearchRegistry.java:68) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.SearchRegistry.populate(SearchRegistry.java:42) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.populateSearchTree(Minecraft.java:2572) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.lambda$createSearchTrees$22(Minecraft.java:791) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.item.CreativeModeTab.rebuildSearchTree(CreativeModeTab.java:153) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.item.CreativeModeTab.buildContents(CreativeModeTab.java:132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.item.CreativeModeTabs.lambda$buildAllTabContents$52(CreativeModeTabs.java:1701) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[?:?] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[?:?] {}
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?] {re:mixin}
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?] {}
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[?:?] {}
+	at net.minecraft.world.item.CreativeModeTabs.buildAllTabContents(CreativeModeTabs.java:1700) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.item.CreativeModeTabs.tryRebuildTabContents(CreativeModeTabs.java:1710) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen.<init>(CreativeModeInventoryScreen.java:86) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.init(InventoryScreen.java:48) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.gui.screens.Screen.init(Screen.java:321) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:computing_frames,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.setScreen(Minecraft.java:1007) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.handleKeybinds(Minecraft.java:1928) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1795) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1112) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:718) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Suspected Mods: 
+	Power of the Void (power_of_the_void), Version: 1.0-SNAPSHOT
+		at TRANSFORMER/power_of_the_void@1.0-SNAPSHOT/org.yunz21.powerofthevoid.spells.orokin.ThermalThunderSpell.getDuration(ThermalThunderSpell.java:93)
+
+	Iron's Spells 'n Spellbooks (irons_spellbooks), Version: 1.20.1-3.4.0.7
+		Issue tracker URL: https://github.com/iron431/Irons-Spells-n-Spellbooks/issues
+		at TRANSFORMER/irons_spellbooks@1.20.1-3.4.0.7/io.redspace.ironsspellbooks.config.ServerConfigs$SpellConfigParameters.school(ServerConfigs.java:276)
+Stacktrace:
+	at net.minecraftforge.common.util.LazyOptional.getValueUnsafe(LazyOptional.java:112) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.common.util.LazyOptional.resolve(LazyOptional.java:210) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at io.redspace.ironsspellbooks.config.ServerConfigs$SpellConfigParameters.school(ServerConfigs.java:276) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar%23198!/:1.20.1-3.4.0.7] {re:classloading}
+	at io.redspace.ironsspellbooks.api.spells.AbstractSpell.getSchoolType(AbstractSpell.java:124) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar%23198!/:1.20.1-3.4.0.7] {re:classloading}
+	at io.redspace.ironsspellbooks.api.spells.AbstractSpell.getSpellPower(AbstractSpell.java:204) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar%23198!/:1.20.1-3.4.0.7] {re:classloading}
+	at org.yunz21.powerofthevoid.spells.orokin.ThermalThunderSpell.getDuration(ThermalThunderSpell.java:93) ~[%23196!/:?] {re:classloading}
+	at org.yunz21.powerofthevoid.spells.orokin.ThermalThunderSpell.getUniqueInfo(ThermalThunderSpell.java:35) ~[%23196!/:?] {re:classloading}
+	at io.redspace.ironsspellbooks.util.TooltipsUtils.formatScrollTooltip(TooltipsUtils.java:105) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar%23198!/:1.20.1-3.4.0.7] {re:classloading}
+	at io.redspace.ironsspellbooks.item.Scroll.appendHoverText(Scroll.java:104) ~[irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.20.1.jar%23198!/:1.20.1-3.4.0.7] {re:classloading}
+	at net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:631) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,xf:fml:forge:itemstack,re:classloading,xf:fml:forge:itemstack,pl:mixin:APP:mixins.irons_spellbooks.json:ItemStackMixin,pl:mixin:A}
+	at net.minecraft.client.Minecraft.lambda$createSearchTrees$10(Minecraft.java:758) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.PlainTextSearchTree.create(PlainTextSearchTree.java:25) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.FullTextSearchTree.refresh(FullTextSearchTree.java:26) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.SearchRegistry$TreeEntry.populate(SearchRegistry.java:68) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.searchtree.SearchRegistry.populate(SearchRegistry.java:42) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.populateSearchTree(Minecraft.java:2572) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.lambda$createSearchTrees$22(Minecraft.java:791) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.world.item.CreativeModeTab.rebuildSearchTree(CreativeModeTab.java:153) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.item.CreativeModeTab.buildContents(CreativeModeTab.java:132) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.item.CreativeModeTabs.lambda$buildAllTabContents$52(CreativeModeTabs.java:1701) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[?:?] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[?:?] {}
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?] {re:mixin}
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?] {}
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[?:?] {}
+	at net.minecraft.world.item.CreativeModeTabs.buildAllTabContents(CreativeModeTabs.java:1700) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.item.CreativeModeTabs.tryRebuildTabContents(CreativeModeTabs.java:1710) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen.<init>(CreativeModeInventoryScreen.java:86) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.gui.screens.inventory.InventoryScreen.init(InventoryScreen.java:48) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.gui.screens.Screen.init(Screen.java:321) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:computing_frames,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.setScreen(Minecraft.java:1007) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.handleKeybinds(Minecraft.java:1928) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+-- Affected level --
+Details:
+	All players: 1 total; [LocalPlayer['Dev'/298, l='ClientLevel', x=2.95, y=64.00, z=7.63]]
+	Chunk stats: 961, 609
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,71,0), Section: (at 0,7,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 180 game time, 180 day time
+	Server brand: forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.fillReportDetails(ClientLevel.java:455) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A,re:mixin,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2319) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:740) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:mixin,pl:accesstransformer:B,pl:runtimedistcleaner:A,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.irons_spellbooks.json:MinecraftMixin,pl:mixin:A,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:569) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:99) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.devService(ForgeClientUserdevLaunchHandler.java:19) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonDevLaunchHandler.lambda$makeService$7(CommonDevLaunchHandler.java:135) ~[fmlloader-1.20.1-47.3.20.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.10.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla, mod_resources
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.13, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 572894800 bytes (546 MiB) / 2604662784 bytes (2484 MiB) up to 4223664128 bytes (4028 MiB)
+	CPUs: 20
+	Processor Vendor: GenuineIntel
+	Processor Name: 12th Gen Intel(R) Core(TM) i7-12700H
+	Identifier: Intel64 Family 6 Model 154 Stepping 3
+	Microarchitecture: Alder Lake
+	Frequency (GHz): 2.69
+	Number of physical packages: 1
+	Number of physical CPUs: 14
+	Number of logical CPUs: 20
+	Graphics card #0 name: Intel(R) Iris(R) Xe Graphics
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x46a6
+	Graphics card #0 versionInfo: DriverVersion=31.0.101.4502
+	Graphics card #1 name: NVIDIA GeForce RTX 3070 Laptop GPU
+	Graphics card #1 vendor: NVIDIA (0x10de)
+	Graphics card #1 VRAM (MB): 4095.00
+	Graphics card #1 deviceId: 0x24dd
+	Graphics card #1 versionInfo: DriverVersion=32.0.15.5612
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 4.80
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 4.80
+	Memory slot #1 type: Unknown
+	Virtual memory max (MB): 41708.49
+	Virtual memory used (MB): 26432.02
+	Swap memory total (MB): 25600.00
+	Swap memory used (MB): 1582.05
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Launched Version: MOD_DEV
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: NVIDIA GeForce RTX 3070 Laptop GPU/PCIe/SSE2 GL version 4.6.0 NVIDIA 556.12, NVIDIA Corporation
+	Window size: 854x480
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: 
+	Current Language: zh_cn
+	CPU: 20x 12th Gen Intel(R) Core(TM) i7-12700H
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/298, l='ServerLevel[新的世界]', x=2.95, y=64.00, z=7.63]]
+	Data Packs: vanilla, mod:power_of_the_void, mod:caelus (incompatible), mod:forge, mod:curios (incompatible), mod:geckolib, mod:playeranimator (incompatible), mod:irons_spellbooks, mod:jei
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	ModLauncher: 10.0.10+10.0.10+main.22f00f84
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.20.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.10.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.10.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20.1-47.3.20_mapped_official_1.20.1-recomp|Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |Power of the Void             |power_of_the_void             |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+		caelus-forge-3.1.0+1.20_mapped_official_1.20.1.jar|Caelus API                    |caelus                        |3.1.0+1.20          |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |47.3.20             |DONE      |Manifest: NOSIGNATURE
+		curios-forge-5.4.7+1.20.1_mapped_official_1.20.1.j|Curios API                    |curios                        |5.4.7+1.20.1        |DONE      |Manifest: NOSIGNATURE
+		geckolib-forge-1.20.1-4.2.2_mapped_official_1.20.1|GeckoLib 4                    |geckolib                      |4.2.2               |DONE      |Manifest: NOSIGNATURE
+		player-animation-lib-forge-1.0.2-rc1+1.20_mapped_o|Player Animator               |playeranimator                |1.0.2-rc1+1.20      |DONE      |Manifest: NOSIGNATURE
+		irons_spellbooks-1.20.1-3.4.0.7_mapped_official_1.|Iron's Spells 'n Spellbooks   |irons_spellbooks              |1.20.1-3.4.0.7      |DONE      |Manifest: NOSIGNATURE
+		jei-1.20.1-forge-15.2.0.22_mapped_official_1.20.1.|Just Enough Items             |jei                           |15.2.0.22           |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: e6d2e551-6866-4dee-8339-c81e0d34db57
+	FML: 47.3
+	Forge: net.minecraftforge:47.3.20
