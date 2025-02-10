@@ -18,6 +18,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -108,27 +109,57 @@ public class MachRushSpell extends AbstractSpell {
             entity.setDeltaMovement(knockback); // Apply outward knockback
         }
 
-        System.out.println("[DEBUG] Shockwave triggered on wall impact!");
+        //System.out.println("[DEBUG] Shockwave triggered on wall impact!");
     }
+
 
     @Mod.EventBusSubscriber(modid = MODID)
     public static class MachRushEvent {
+        private static boolean usedSprinting = false;
 
         @SubscribeEvent
         public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
             if (event.phase == TickEvent.Phase.START && VSpellRegistry.MACH_RUSH_SPELL.isPresent()) { //VSpellRegistry.MACH_RUSH.isPresent()
 
                 Player player = event.player;
-                MobEffectInstance effect = player.getEffect(VMobEffectRegistry.MACH_RUSH.get());
-                float maxUpStep = player.maxUpStep();
-                System.out.println(maxUpStep);
-                if (effect != null && player.isSprinting()) {
+                //MobEffectInstance effect = player.getEffect(VMobEffectRegistry.MACH_RUSH.get());
+                //float defaultStep = player.maxUpStep();
+                //BlockPos pos = player.blockPosition();
+                //BlockState blockStateBot = player.level().getBlockState(pos.below()); // Check block right under player is fluid or not
+                //boolean isOnLiquid = !blockState.getFluidState().isEmpty();
+
+                if (player.hasEffect(VMobEffectRegistry.MACH_RUSH.get()) && player.isSprinting()) {
+                    // When player switch from walk to sprint, play sound
+                    if (!usedSprinting) {
+                        player.level().playSound(null, player.blockPosition(), VSoundRegistry.MACH_RUSH.get(), SoundSource.PLAYERS, 1.0f, 1.0f);
+                        usedSprinting = true;
+                    }
+
+                    // Make player able to walk on water when sprinting with effect MACH_RUSH
+                    //if (!blockStateBot.getFluidState().isEmpty()) {
+                        // Keep the player exactly at the liquid surface
+                        //double waterSurfaceY = pos.getY() + 1 - player.getBbHeight() * 0.5;
+                        //player.setPos(player.getX(), waterSurfaceY, player.getZ());
+
+                        // Preserve sprinting speed on water
+                        // Get player's current movement speed attribute
+                        //double baseSpeed = player.getAttributeValue(Attributes.MOVEMENT_SPEED);
+                        //double sprintSpeed = baseSpeed * 1.3; // Sprinting speed factor in Minecraft
+                        //player.setOnGround(true);
+                        // Dynamically adjust speed multiplier
+                        //double speedMultiplier = player.getAttributeValue(Attributes.MOVEMENT_SPEED) / 0.23;
+
+                        // Preserve sprinting speed on water
+//                        Vec3 motion = player.getDeltaMovement();
+//                        Vec3 newMotion = new Vec3(motion.x * speedMultiplier, 0, motion.z * speedMultiplier);
+//                        player.setDeltaMovement(newMotion);
+                    //}
+
                     // 增加移动速度（默认速度的 1.5 倍）
-                    player.getAttribute(Attributes.MOVEMENT_SPEED)
-                            .setBaseValue(0.15 * 1.5); // 默认速度为 0.1，1.5 倍为 0.15
+                    player.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.15 * 1.5); // 默认速度为 0.1，1.5 倍为 0.15
 
                     // 增加跨越高度（默认 0.6，增加到 1.2）
-                    player.setMaxUpStep(1.2f);
+                    player.setMaxUpStep(1.6f);
 
                     // Damage & Knock Back Nearby Entities
                     double range = 1.5; // Attack range in front of the player
@@ -177,6 +208,7 @@ public class MachRushSpell extends AbstractSpell {
 
                         // Stop sprinting after hitting the wall
                         player.setSprinting(false);
+                        usedSprinting = false;
                     }
 
                 } else {
@@ -184,7 +216,10 @@ public class MachRushSpell extends AbstractSpell {
                     player.getAttribute(Attributes.MOVEMENT_SPEED)
                             .setBaseValue(0.1f); // 恢复默认速度
                     player.setMaxUpStep(0.6f); // 恢复默认跨越高度
+                    usedSprinting = false;
                 }
+
+                //System.out.println(player.maxUpStep());
             }
         }
     }

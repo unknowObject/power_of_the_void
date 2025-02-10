@@ -23,6 +23,7 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -31,6 +32,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.lwjgl.glfw.GLFW;
 import org.yunz21.powerofthevoid.PowerOfTheVoid;
+import org.yunz21.powerofthevoid.capabilities.BatteryCapabilityProvider;
+import org.yunz21.powerofthevoid.network.ModMessages;
+import org.yunz21.powerofthevoid.network.packet.BatteryDataSyncPacket;
 import org.yunz21.powerofthevoid.registries.VMobEffectRegistry;
 import org.yunz21.powerofthevoid.registries.VSchoolRegistry;
 import org.yunz21.powerofthevoid.registries.VSoundRegistry;
@@ -181,7 +185,7 @@ public class ThermalSunderNewSpell extends AbstractSpell {
         // Calculate the cast duration
         //long castDuration = entity.tickCount - castStartTime;
         //if (GLFW.glfwGetKey())
-        boolean isFire = !Screen.hasControlDown();
+        boolean isFire = !(Screen.hasControlDown() || Screen.hasShiftDown());
 
         if (isFire) {
             // Fire
@@ -199,11 +203,6 @@ public class ThermalSunderNewSpell extends AbstractSpell {
         if (!entity.level().isClientSide) {
             float radius = getRadius(spellLevel, entity);
 
-<<<<<<< Updated upstream
-            MagicManager.spawnParticles(level, new ShockwaveParticleOptions(SchoolRegistry.ICE.get().getTargetingColor(), radius, false, "irons_spellbooks:snowflake"), entity.getX(), entity.getY() + .15f, entity.getZ(), 1, 0, 0, 0, 0, true);
-            level.getEntities(entity, entity.getBoundingBox().inflate(radius, 4, radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach(target -> {
-                if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
-=======
             entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
 
                 MagicManager.spawnParticles(level, new ShockwaveParticleOptions(SchoolRegistry.ICE.get().getTargetingColor(), radius, false, "irons_spellbooks:snowflake"), entity.getX(), entity.getY() + .15f, entity.getZ(), 1, 0, 0, 0, 0, true);
@@ -212,7 +211,6 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                     float charge = battery.getCharge();
                     float damage = getDamage(spellLevel, entity) * (charge * 0.04f + 1.0f);
                     int ampIce = 0;
->>>>>>> Stashed changes
 
                     if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
 
@@ -223,29 +221,6 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                         MagicManager.spawnParticles(level, ParticleHelper.SNOWFLAKE, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() * .5f, livingEntity.getZ(), 50, livingEntity.getBbWidth() * .5f, livingEntity.getBbHeight() * .5f, livingEntity.getBbWidth() * .5f, .03, false);
 
 
-<<<<<<< Updated upstream
-                    if (livingEntity.hasEffect(VMobEffectRegistry.HEAT.get())) {
-                        // If target already effected by heat, deal more damage base on heat level and clear heat effect, add 1 level chilled
-                        int amp = Objects.requireNonNull(livingEntity.getEffect(VMobEffectRegistry.HEAT.get())).getAmplifier();
-                        livingEntity.removeEffect(VMobEffectRegistry.HEAT.get());
-                        livingEntity.clearFire();
-                        livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity)));
-                        livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), getDuration(spellLevel, entity), (amp + 1) * 5));
-                        DamageSources.applyDamage(target, damage * (float)Math.pow(3, amp + 1), getDamageSource(entity));
-                        pullTargets(livingEntity, entity, 1.0f);
-                    } else if (livingEntity.hasEffect(MobEffectRegistry.CHILLED.get())) {
-                        // If target not effected by heat, add 1 level chilled and deal damage
-                        int amp = Objects.requireNonNull(livingEntity.getEffect(MobEffectRegistry.CHILLED.get())).getAmplifier();
-                        livingEntity.removeEffect(MobEffectRegistry.CHILLED.get());
-                        livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), amp + 1));
-                        DamageSources.applyDamage(target, damage, getDamageSource(entity));
-                        pullTargets(livingEntity, entity, 0.5f);
-                    } else {
-                        // If target not effected by heat, add 1 level chilled and deal damage
-                        livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity)));
-                        DamageSources.applyDamage(target, damage, getDamageSource(entity));
-                        pullTargets(livingEntity, entity, 0.5f);
-=======
                         if (livingEntity.hasEffect(VMobEffectRegistry.HEAT.get())) {
                             // If target already effected by heat, deal more damage base on heat level and clear heat effect, add 1 level chilled
                             int amp = Objects.requireNonNull(livingEntity.getEffect(VMobEffectRegistry.HEAT.get())).getAmplifier();
@@ -253,13 +228,13 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                             livingEntity.clearFire();
 
                             if (battery.hasCharge(80)) {    // When Redline is active, freeze enemy if charge over 80
-                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), getDuration(spellLevel, entity), getRendAmp(charge)));
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), MobEffectInstance.INFINITE_DURATION, getRendAmp(charge)));
                                 livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), 5));
                             } else {
                                 livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.CHILLED.get(), getDuration(spellLevel, entity), 2));
                             }
 
-                            DamageSources.applyDamage(target, damage * (float)Math.pow(2, amp + 1), getDamageSource(entity));
+                            DamageSources.applyDamage(target, 2 * damage * (float)Math.pow(2, amp + 1), getDamageSource(entity));
                             pullTargets(livingEntity, entity, 1.0f);
                         } else if (livingEntity.hasEffect(MobEffectRegistry.CHILLED.get())) {
                             // If target not effected by heat, add 1 level chilled and deal damage
@@ -283,7 +258,6 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                             }                            DamageSources.applyDamage(target, damage, getDamageSource(entity));
                             pullTargets(livingEntity, entity, 0.5f);
                         }
->>>>>>> Stashed changes
                     }
 
                 });
@@ -301,24 +275,17 @@ public class ThermalSunderNewSpell extends AbstractSpell {
         if (!entity.level().isClientSide) {
             float radius = getRadius(spellLevel, entity);
 
-<<<<<<< Updated upstream
-            MagicManager.spawnParticles(level, new BlastwaveParticleOptions(((SchoolType) SchoolRegistry.FIRE.get()).getTargetingColor(), radius), entity.getX(), entity.getY() + (double)0.165F, entity.getZ(), 1, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F, true);
-            Messages.sendToPlayersTrackingEntity(new ClientboundParticleShockwave(new Vec3(entity.getX(), entity.getY() + (double)0.165F, entity.getZ()), radius, (ParticleType) ParticleRegistry.FIRE_PARTICLE.get()), entity, true);
-            level.getEntities(entity, entity.getBoundingBox().inflate((double)radius, (double)4.0F, (double)radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach((target) -> {
-                if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
-=======
             entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
                 MagicManager.spawnParticles(level, new BlastwaveParticleOptions(((SchoolType) SchoolRegistry.FIRE.get()).getTargetingColor(), radius), entity.getX(), entity.getY() + (double)0.165F, entity.getZ(), 1, (double)0.0F, (double)0.0F, (double)0.0F, (double)0.0F, true);
                 Messages.sendToPlayersTrackingEntity(new ClientboundParticleShockwave(new Vec3(entity.getX(), entity.getY() + (double)0.165F, entity.getZ()), radius, (ParticleType) ParticleRegistry.FIRE_PARTICLE.get()), entity, true);
                 level.getEntities(entity, entity.getBoundingBox().inflate((double)radius, (double)4.0F, (double)radius), (target) -> !DamageSources.isFriendlyFireBetween(target, entity) && Utils.hasLineOfSight(level, entity, target, true)).forEach((target) -> {
 
                     float charge = battery.getCharge();
-                    float damage = getDamage(spellLevel, entity) * (charge * 0.04f + 1.0f) * 2f;
+                    float damage = getDamage(spellLevel, entity) * (charge * 0.04f + 1.0f) * 2.0f;
                     int ampFire = 0;
                     float damageFire = damage;
 
                     if (target instanceof LivingEntity livingEntity && livingEntity.distanceToSqr(entity) < radius * radius) {
->>>>>>> Stashed changes
 
                         MagicManager.spawnParticles(level, ParticleHelper.FIRE, livingEntity.getX(), livingEntity.getY() + livingEntity.getBbHeight() * .5f, livingEntity.getZ(), 50, livingEntity.getBbWidth() * .5f, livingEntity.getBbHeight() * .5f, livingEntity.getBbWidth() * .5f, .03, false);
                         if (entity.hasEffect(VMobEffectRegistry.REDLINE.get())) {
@@ -331,34 +298,12 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                             int amp = Objects.requireNonNull(livingEntity.getEffect(MobEffectRegistry.CHILLED.get())).getAmplifier();
                             livingEntity.removeEffect(MobEffectRegistry.CHILLED.get());
 
-<<<<<<< Updated upstream
-                    if (livingEntity.hasEffect(MobEffectRegistry.CHILLED.get())) {
-                        // If target already effected by chilled, deal more damage base on chilled level and clear chilled effect, add 1 level heat
-                        int amp = Objects.requireNonNull(livingEntity.getEffect(MobEffectRegistry.CHILLED.get())).getAmplifier();
-                        livingEntity.removeEffect(MobEffectRegistry.CHILLED.get());
-                        livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity)));
-                        livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), getDuration(spellLevel, entity), (amp + 1) * 5));
-                        DamageSources.applyDamage(target, damage * (float) Math.pow(2, amp+1), getDamageSource(entity));
-                        pushTargets(livingEntity, entity, 0.2f);
-                    } else if (livingEntity.hasEffect(VMobEffectRegistry.HEAT.get())) {
-                        // If target not effected by heat, add 1 level heat and deal more damage
-                        int amp = Objects.requireNonNull(livingEntity.getEffect(VMobEffectRegistry.HEAT.get())).getAmplifier();
-                        livingEntity.removeEffect(VMobEffectRegistry.HEAT.get());
-                        livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity), amp + 1));
-                        DamageSources.applyDamage(target, damage * (float) Math.pow(1.5, amp), getDamageSource(entity));
-                        pullTargets(livingEntity, entity, 0.1f);
-                    } else {
-                        // If target not effected by heat, add 1 level heat and deal damage
-                        livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity)));
-                        DamageSources.applyDamage(target, damage, getDamageSource(entity));
-                        pullTargets(livingEntity, entity, 0.1f);
-=======
                             livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity), ampFire));
                             if (battery.hasCharge(80)) {
-                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), getDuration(spellLevel, entity), getRendAmp(charge)));
+                                livingEntity.addEffect(new MobEffectInstance(MobEffectRegistry.REND.get(), MobEffectInstance.INFINITE_DURATION, getRendAmp(charge)));
                             }
 
-                            DamageSources.applyDamage(target, damage * (float) Math.pow(2, (double) (amp + 1) / 3), getDamageSource(entity));
+                            DamageSources.applyDamage(target, damage / 2 * (float) Math.pow(2, (double) (amp + 1) / 3), getDamageSource(entity));
                             pushTargets(livingEntity, entity, 0.2f);
                         } else if (livingEntity.hasEffect(VMobEffectRegistry.HEAT.get())) {
                             // If target not effected by heat, add 1 level heat and deal more damage
@@ -367,7 +312,7 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                             livingEntity.addEffect(new MobEffectInstance(VMobEffectRegistry.HEAT.get(), getDuration(spellLevel, entity), amp + ampFire + 1));
 
                             if (battery.hasCharge(80)) {
-                                DamageSources.applyDamage(target, 2 * damage * (float) Math.pow(1.5, amp + 1), getDamageSource(entity));
+                                DamageSources.applyDamage(target, damage * (float) Math.pow(1.5, amp + 1), getDamageSource(entity));
                             } else {
                                 DamageSources.applyDamage(target, damage * (float) Math.pow(1.5, amp + 1), getDamageSource(entity));
                             }
@@ -382,7 +327,6 @@ public class ThermalSunderNewSpell extends AbstractSpell {
                             }
                             //pullTargets(livingEntity, entity, 0.1f);
                         }
->>>>>>> Stashed changes
                     }
                 });
 

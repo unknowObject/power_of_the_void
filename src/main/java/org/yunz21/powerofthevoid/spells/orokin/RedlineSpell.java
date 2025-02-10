@@ -13,8 +13,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.yunz21.powerofthevoid.PowerOfTheVoid;
+import org.yunz21.powerofthevoid.capabilities.BatteryCapabilityProvider;
 import org.yunz21.powerofthevoid.registries.VSchoolRegistry;
 import org.yunz21.powerofthevoid.registries.VSoundRegistry;
 import org.yunz21.powerofthevoid.registries.VMobEffectRegistry;
@@ -82,15 +86,17 @@ public class RedlineSpell extends AbstractSpell {
     }
 
     @Override
+    public boolean checkPreCastConditions(Level level, int spellLevel, LivingEntity entity, MagicData playerMagicData) {
+        return !entity.hasEffect(VMobEffectRegistry.REDLINE.get());
+    }
+
+    @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
         entity.addEffect(new MobEffectInstance(VMobEffectRegistry.REDLINE.get(), (int) (getSpellPower(spellLevel, entity) * 40), spellLevel - 1, false, false, true));
 
-<<<<<<< Updated upstream
-=======
         entity.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
             battery.setRedlineDuration((int) getSpellPower(spellLevel, entity) * 40);
         });
->>>>>>> Stashed changes
         super.onCast(level, spellLevel, entity, castSource, playerMagicData);
     }
 

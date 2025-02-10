@@ -3,7 +3,7 @@
   "item.power_of_the_void.drippy": "妈耶精华",
   "school.power_of_the_void.orokin": "奥罗金",
 
-  "ui.power_of_the_void.cast_fail": "生命值不足以释放",
+  "ui.power_of_the_void.cast_fail": "生命值不足以释放祭血仪式",
   "ui.power_of_the_void.life_cost": "生命值消耗",
   "ui.power_of_the_void.mana_add": "魔法值回复",
   "ui.power_of_the_void.iceDamage": "寒冰伤害",
@@ -37,11 +37,7 @@
   "spell.power_of_the_void.roar.guide": "短时间内让所有附近的玩家提升伤害输出。",
   "spell.power_of_the_void.thermal_sunder_ice.guide": "在附近区域吸取动能，冰封附近生物。如果生物拥有火焰异常，将基于火焰异常等级永久移除护甲并造成额外伤害。",
   "spell.power_of_the_void.thermal_sunder_fire.guide": "在附近区域释放动能，点燃附近生物并施加火焰异常。如果生物已被冰封，则基于冰封等级永久移除护甲并造成额外伤害。",
-<<<<<<< Updated upstream
-  "spell.power_of_the_void.thermal_sunder_new.guide": "在附近区域吸取动能，冰封附近生物。按住Ctrl释放逆转这一过程，点燃并伤害附近生物。如果生物被另一种状态影响，则基于等级永久移除护甲并造成额外伤害。"
-=======
   "spell.power_of_the_void.thermal_sunder_new.guide": "在附近区域释放动能，点燃并伤害附近生物。按住Ctrl或Shift释放逆转这一过程，冰封附近生物。如果生物被另一种状态影响，则基于等级永久移除护甲并造成额外伤害。",
   "spell.power_of_the_void.mach_rush.guide": "猛冲产生一个超级冲刺来撞倒敌人并对电池蓄电，或是撞上坚固的物体来产生强大的震荡波。",
   "spell.power_of_the_void.kinetic_plating.guide": "产生可以将一部分所吸收的动能伤害转成能量的动能镀层。同时也保护玩家免于击倒。伤害抗性与电池电量是相对的。"
->>>>>>> Stashed changes
 }

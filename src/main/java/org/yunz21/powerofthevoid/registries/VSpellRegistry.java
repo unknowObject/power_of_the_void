@@ -35,11 +35,8 @@ public class VSpellRegistry {
     public static final RegistryObject<AbstractSpell> MESMER_SKIN_SPELL = registerSpell(new MesmerSkinSpell());
     public static final RegistryObject<AbstractSpell> BLOODLETTING_SPELL = registerSpell(new BloodlettingSpell());
     public static final RegistryObject<AbstractSpell> ROAR_SPELL = registerSpell(new RoarSpell());
-<<<<<<< Updated upstream
-=======
     public static final RegistryObject<AbstractSpell> MACH_RUSH_SPELL = registerSpell(new MachRushSpell());
     public static final RegistryObject<AbstractSpell> KINETIC_PLATING_SPELL = registerSpell(new KineticPlatingSpell());
->>>>>>> Stashed changes
 
     public static final RegistryObject<AbstractSpell> THERMAL_THUNDER_ICE_SPELL = registerSpell(new ThermalSunderIceSpell());
     public static final RegistryObject<AbstractSpell> THERMAL_THUNDER_FIRE_SPELL = registerSpell(new ThermalSunderFireSpell());

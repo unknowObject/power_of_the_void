@@ -10,6 +10,11 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.yunz21.powerofthevoid.capabilities.BatteryCapabilityProvider;
+import org.yunz21.powerofthevoid.registries.VMobEffectRegistry;
 
 import java.awt.*;
 
@@ -36,4 +41,24 @@ public class RedlineEffect extends CustomDescriptionMobEffect {
     public void addAttributeModifiers(LivingEntity pLivingEntity, AttributeMap pAttributeMap, int pAmplifier) {
         super.addAttributeModifiers(pLivingEntity, pAttributeMap, pAmplifier);
     }
+
+//    @SubscribeEvent
+//    public void onEffectUpdated(LivingEvent.LivingTickEvent event) {
+//        if (event.getEntity() instanceof Player player) {
+//            player.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
+//                boolean hasRedline = player.hasEffect(VMobEffectRegistry.REDLINE.get());
+//
+//                if (hasRedline) {
+//                    MobEffectInstance effect = player.getEffect(VMobEffectRegistry.REDLINE.get());
+//                    battery.setRedlineActive(true);//, effect.getDuration());
+//                    battery.setMaxCharge();
+//                    player.sendSystemMessage(Component.literal("Redline on!"));
+//                } else {
+//                    battery.setRedlineActive(false);//, 0);
+//                    battery.setMaxCharge();
+//                    player.sendSystemMessage(Component.literal("Redline off!"));
+//                }
+//            });
+//        }
+//    }
 }

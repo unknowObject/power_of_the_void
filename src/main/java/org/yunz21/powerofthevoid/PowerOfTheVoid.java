@@ -4,8 +4,11 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoader;
@@ -17,11 +20,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
-<<<<<<< Updated upstream
-=======
 import org.yunz21.powerofthevoid.capabilities.BatteryCapabilityProvider;
 //import org.yunz21.powerofthevoid.config.ConfigForge;
->>>>>>> Stashed changes
 import org.yunz21.powerofthevoid.registries.*;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -34,6 +34,7 @@ public class PowerOfTheVoid {
     //private final ConfigForge configuration = new ConfigForge();
 
     public PowerOfTheVoid() {
+        //noinspection removal
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         LOGGER.info("Registering mod event bus for {}", MODID);
 
@@ -56,14 +57,12 @@ public class PowerOfTheVoid {
         // Sound
         VSoundRegistry.register(modEventBus);
 
+
         modEventBus.addListener(this::commonSetup);
-<<<<<<< Updated upstream
-=======
         MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, this::attachCapability);
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, this.configuration.getSpec());
 
->>>>>>> Stashed changes
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -71,21 +70,21 @@ public class PowerOfTheVoid {
         // Some common setup code
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
-        // Rendering armor
-        @SubscribeEvent
-        public static void registerRenderers(final EntityRenderersEvent.AddLayers event)
-        {
-        }
-
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-        }
-    }
+//    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+//    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+//    public static class ClientModEvents
+//    {
+//        // Rendering armor
+//        @SubscribeEvent
+//        public static void registerRenderers(final EntityRenderersEvent.AddLayers event)
+//        {
+//        }
+//
+//        @SubscribeEvent
+//        public static void onClientSetup(FMLClientSetupEvent event)
+//        {
+//        }
+//    }
 
     private static ResourceKey<CreativeModeTab> createKey(String key) {
         return ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation(key));
@@ -93,5 +92,15 @@ public class PowerOfTheVoid {
 
     public static ResourceLocation id(@NotNull String path) {
         return new ResourceLocation(PowerOfTheVoid.MODID, path);
+    }
+
+    public void attachCapability(AttachCapabilitiesEvent<Entity> event) {
+        if(event.getObject() instanceof Player player){
+            //System.out.println("[DEBUG] Attaching battery capability to player...");
+            if(!event.getCapabilities().containsKey(new ResourceLocation(MODID, "battery"))){
+                event.addCapability(new ResourceLocation(MODID, "battery"), new BatteryCapabilityProvider());
+                //System.out.println("[DEBUG] Battery capability attached!");
+            }
+        }
     }
 }

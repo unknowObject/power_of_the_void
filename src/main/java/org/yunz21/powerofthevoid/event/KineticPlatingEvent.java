@@ -65,7 +65,16 @@ public class KineticPlatingEvent {
                 player.getCapability(BatteryCapabilityProvider.PLAYER_CHARGE).ifPresent(battery -> {
                     float reduction = player.getPersistentData().getFloat("KineticPlatingReduction");
                     if (reduction == 100) {
-                        event.setCanceled(true);
+                        DamageSource source = event.getSource();
+                        boolean isNotPhysical = source == player.damageSources().dragonBreath() ||
+                                source == player.damageSources().drown() ||
+                                source == player.damageSources().magic() ||
+                                source == player.damageSources().starve() ||
+                                source == player.damageSources().wither() ||
+                                source == player.damageSources().lightningBolt();
+                        if (!isNotPhysical) {
+                            event.setCanceled(true);
+                        }
                         //System.out.println("[DEBUG]Completely canceled");
                     }
                 });
